@@ -1,0 +1,14 @@
+#include <assert.h>
+
+int mulipleof3(int n){
+  if(n%3==0)
+    return 1;
+  return 0;
+}
+
+int main(){
+  assert(multipleof3(9)==1);
+  assert(multipleof3(8)==0);
+  assert(multipleof3(100)==0);
+  return 0;
+}

@@ -1,0 +1,18 @@
+#include <stdlib.h>
+#include <stdio.h>
+
+int main(){
+  int countWords = 1, numLetters = 0,err;
+  char c;
+  while((err = scanf("%c", &c)) != EOF){
+    if(err == -1)
+      return -1;
+    if(('A' <= c && 'Z' >= c)||('a' <=c && 'z'>=c))
+      numLetters++;
+    if(' ' == c)
+      countWords++;
+  }
+  int mean = numLetters/countWords;
+  printf("Mean of lengths: %d\n",mean);
+  return 0;
+}

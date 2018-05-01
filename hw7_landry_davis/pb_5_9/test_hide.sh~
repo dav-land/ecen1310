@@ -1,0 +1,30 @@
+#! /bin/bash
+
+# Simple test for the hide program.
+
+run () {
+  echo "$*"
+  if $*
+  then echo 'success'
+  else echo 'error'
+  fi
+}
+
+cat msg.txt
+run ./hide -encrypt < msg.txt > msg.txt
+cat msg.txt
+run ./hide -decrypt < msg.txt > msg.txt
+cat nothingChanges.txt
+run ./hide -encrypt < nothingChanges.txt > nothingChanges.txt
+cat nothingChanges.txt
+cat capitals.txt
+run ./hide -encrypt < capitals.txt > capitals.txt
+cat capitals.txt
+run ./hide -decrypt < capitals.txt > capitals.txt
+cat capitals.txt
+
+run ./hide -encrypt <<EOF
+abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 ~!@#$%^&*
+EOF
+
+exit 0

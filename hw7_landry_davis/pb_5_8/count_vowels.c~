@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main(int argc, char const * const argv[]){
+  if(argc != 1){
+    printf("No parameters neccesary\n");
+    return -1;
+  }
+
+  int a = 0, e = 0,i = 0, o = 0, u = 0,err;
+  char k,c;
+  while(err = scanf("%c",&c) != EOF){//converts string to all lowercase letters
+      if(err != 1)
+	return -1;
+      if('A' <= c && 'Z' >= c)
+	k = c + 'a'-'A';
+      else
+	k = c;
+      if(k == 'a')
+	a++;
+      else if(k == 'e')
+	e++;
+      else if(k == 'i')
+	i++;
+      else if(k == 'o')
+	o++;
+      else if(k == 'u')
+	u++;
+  }
+  printf("a: %d, e: %d, i: %d, o: %d, u: %d\n",a,e,i,o,u);
+  return 0;
+}
